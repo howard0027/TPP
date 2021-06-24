@@ -5,7 +5,7 @@
 4. getPos() : 得到Player::pos
 5. addCoin(delta) : 傳入delta，代表增減多少錢(如果減少是負數、增加是正數)，更新Player::coin。我用assert檢查Player::coin<0，但這只能在測試使用，所以看要在哪裡做檢查。
 
-<<Zombie>> : 可能有一些冗餘功能
+<<Zombie>> : 我覺得它寫在在class Game會比較好(?，而不是class Map裡面。另外可能有一些冗餘功能XD。
 1. Zombie() constructor : default，因為不知道map大小，所以會將Zombie::pos=0。
 2. Zombie(sz) constructor : 傳入有多少塊lands(要知道map大小)，會將Zombie::pos=[0, sz)。
 3. move(sz) : 傳入有多少塊lands(要知道map大小)，會在map內移動，更新Zombie::pos。
