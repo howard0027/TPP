@@ -12,8 +12,12 @@
 4. getHP() : 得到Zombie::hp
 5. getAtk() : 得到Player::atk
 6. getPos() : 得到Zombie::pos
-7. attack(Plant &) : 執行zombie act (這部分的功能可能與Game重複??)
+Remove // 7. attack(Plant &) : 執行zombie act (這部分的功能可能與Game重複??)
 8. print() : 用視覺化的方式印出這一支zombie的information (這部分的功能可能與Game重複??)
+9. isDead() : 判斷血量是否小於0
+10. loseHP(delta) : 減少多少血量
+11. getID() : 回傳流水號，流水號從0開始 (**只要construct一次，流水號就會增加喔，所以對同一個變數重複constructor就算當前只有一隻zombie，流水號可能會>0。 )
+12. 我有開 friend class Horn and Bomb。
 
 <<Map>> 因為變數都是private，所以我有增加幾個函數方便得到private的資料。
 1. Map(sz) constructor: 傳入有多少個lands in this map。

@@ -9,14 +9,14 @@
 Player::Player()
 {
 	this->pos = 0;
-	this->dir = GO_DOWN;
+	this->dir = Player::GO_DOWN;
 	this->coin = Player::INIT_COIN;
 }
 
 Player::Player(const int sz)
 {
 	this->pos = rand() % sz;
-	this->dir = GO_DOWN;
+	this->dir = Player::GO_DOWN;
 	this->coin = Player::INIT_COIN;
 }
 
@@ -24,7 +24,7 @@ void Player::move(const int sz)
 {
 	int step = this->myrand(1, sz);
 	
-	if(this->dir == GO_DOWN)
+	if(this->dir == Player::GO_DOWN)
 	{
 		this->pos += step;
 		if(this->pos >= sz)
@@ -33,7 +33,7 @@ void Player::move(const int sz)
 			this->dir = this->changeDir(dir);
 		}
 	}
-	else if(this->dir == GO_UP)
+	else if(this->dir == Player::GO_UP)
 	{
 		this->pos -= step;
 		if(this->pos < 0)
@@ -74,8 +74,8 @@ int Player::myrand(const int lb, const int ub) const
 
 int Player::changeDir(const int originalDir) const
 {
-	if(originalDir == GO_UP) return GO_DOWN;
-	if(originalDir == GO_DOWN) return GO_UP;
+	if(originalDir == Player::GO_UP) return Player::GO_DOWN;
+	if(originalDir == Player::GO_DOWN) return Player::GO_UP;
 	assert(0); // error condition
 	const int ERR = -1;
 	return ERR;

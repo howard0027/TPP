@@ -1,8 +1,10 @@
 // Map.cpp
 
 #include "Map.h"
+#include "Plant.h"
 #include <cassert>
 #include <vector>
+
 
 Map::Map(const int numOfLands)
 {
@@ -34,8 +36,32 @@ void Map::planting(const int idx, Plant *plant)
 	return;
 }
 
-bool Map::checkStatus() const
+void Map::updateStatus()
 {
+	const int DEAD = 0;
 	
+	for(std::size_t i = 0; i < this->plantList.size(); ++i)
+	{
+		Plant *plant = this->plantList[i];
+		
+		if(plant == nullptr) continue;
+		
+		if(plant->returnHp() <= DEAD)
+		{
+			delete this->plantList[i];
+			this->plantList[i] = nullptr;
+			
+			this->plantAmount -= 1; // decrease amount
+		}
+		
+	}
+	
+	return;
+}
+
+bool Map::checkStatus()
+{
+	this->updateStatus();
 	return this->plantAmount > 0;
 }
+

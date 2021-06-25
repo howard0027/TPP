@@ -9,9 +9,6 @@
  *
  */
 
-static const int GO_DOWN = 0; // This const value can only be called by this file.
-static const int GO_UP = 1; // This const value can only be called by this file.
-
 class Player{
 public:
 	
@@ -27,8 +24,11 @@ private:
 	
 	const static int INIT_COIN = 150;
 	
+	const static int GO_DOWN = 0; // This const value can only be called by this file.
+	const static int GO_UP = 1; // This const value can only be called by this file.
+	
 	int pos = 0;
-	int dir = GO_DOWN;
+	int dir = Player::GO_DOWN;
 	int coin = Player::INIT_COIN;
 	
 	int myrand(const int, const int) const;
